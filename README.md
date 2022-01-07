@@ -685,7 +685,7 @@ The above code is simple  and it answers the following domain and value/cost que
 |  2.  |              Which of them are most alike? How?              |                       verse 3 - 99                        |
 |  3.  |              Which of them are different? How?               |                         0, 1 & 2                          |
 |  4.  | What is the rule to determine which rule should be utilized next? |                       Not explicit                        |
-|      |                                                              |                                                           |
+|      |                            <br />                            |                                                           |
 |      |                   **Value/Cost Questions**                   |                                                           |
 |  1.  |               How difficult was this to write?               |                           easy                            |
 |  2.  |                How hard is it to understand?                 |                           easy                            |
