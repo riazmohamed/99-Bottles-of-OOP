@@ -6,6 +6,12 @@
 2. [Incomprehensibly concise](#first-attempt)
 3. [Speculative General](#speculative-general)
 
+In this book the author is attempting to give us a broader overview of a value/cost analysis using different implementations. The set of value cost questions used here are 
+
+* How difficult was it to write?
+* How hard it is to understand?
+* How expensive will it be to change?
+
 ### Test Suite
 
 The following is the test suite against which the code will be executed. Here we are using the gem `Minitest` to test the application in `bottle.rb`
@@ -438,7 +444,7 @@ class Bottles
 end
 ```
 
-In the above code though the above code is very concise it is very hard to read and due to this it is hard to maintain. The above should be avoided in order to reduce the cost in the long run
+In the above code though the above code is very concise it is very hard to read and due to this it is hard to maintain. The above should be avoided in order to reduce the cost in the long run. The above code does not follow the principles of `DRY`.
 
 ### Second attempt
 
@@ -511,3 +517,122 @@ class Verse
 end
 ```
 
+The complexity in the above code is quite high due to its depndencies. The above should be avoided and one must strive to write a much simpler solution.  
+
+
+
+### Concretely abstract
+
+Naming the methods with wrong layer of abstractions
+
+```ruby
+class Bottles
+  def song
+    verses(99, 0)
+  end
+
+  def verses(bottles_at_start, bottles_at_end)
+    bottles_at_start.downto(bottles_at_end).map do |bottles|
+      verse(bottles)
+    end.join("\n")
+  end
+
+  def verse(bottles)
+    Round.new(bottles).to_s
+  end
+end
+
+class Round
+  attr_reader :bottles
+  def initialize(bottles)
+    @bottles = bottles
+  end
+
+  def to_s
+    challenge + response
+  end
+
+  def challenge
+    bottles_of_milk.capitalize + " " + on_wall + ", " +
+    bottles_of_milk + ".\n"
+  end
+
+  def response
+    go_to_the_store_or_take_one_down + ", " +
+    bottles_of_milk + " " + on_wall + ".\n"
+  end
+
+  def bottles_of_milk
+    "#{anglicized_bottle_count} #{pluralized_bottle_form} of #{milk}"
+  end
+
+  def milk
+    "milk"
+  end
+
+  def on_wall
+    "on the wall"
+  end
+
+  def pluralized_bottle_form
+    last_milk? ? "bottle" : "bottles"
+  end
+
+  def anglicized_bottle_count
+    all_out? ? "no more" : bottles.to_s
+  end
+
+  def go_to_the_store_or_take_one_down
+    if all_out?
+      @bottles = 99
+      buy_new_milk
+    else
+      lyrics = drink_milk
+      @bottles -= 1
+      lyrics
+    end
+  end
+
+  def buy_new_milk
+    "Go to the store and buy some more"
+  end
+
+  def drink_milk
+    "Take #{it_or_one} down and pass it around"
+  end
+
+  def it_or_one
+    last_milk? ? "it" : "one"
+  end
+
+  def all_out?
+    bottles.zero?
+  end
+
+  def last_milk?
+    bottles == 1
+  end
+end
+```
+
+Here we are attempting to create a solution which follows the `DRY` principle. However care should be taken in naming the methods appropriately. The main point taken from the above code is that in-order for the code to reduce cost and to truly follow the `DRY` principle **the methods should be named after what they mean and what they represent in the context of the problem domain and not based on what they do**. Naming the method at a slightly higher level of abstraction negates the need to change the method name when we change the context of the program. 
+
+```ruby
+drink = "Milk"
+
+def milk_shake(drink)
+  drink
+end
+```
+
+In the above code everytime we would like to change the beverage we will have to change the method name so that everything is in the context of the domain.
+
+```ruby
+drink = "kool-aid"
+
+def beverage(drink)
+  drink
+end
+```
+
+In the above code since we have a higher layer of abstraction in the method name the previous problem is now negated. Naming the methods with the wrong layer of abstraction can lead to a higher cost when changing the implementation details. The main lesson learnt from this implementation detail is that the methods should be named based on the concepts they represent and not based on how they currently behave. Also the current solution does not address the value/cost question as many of the methods have wrong abstractions.
