@@ -2,7 +2,7 @@
 
 ## Index
 
-1. [Test suite](#test-suite)
+1. [Test suite](#1-1-test-suite)
 2. Understanding simplicity
    1. [Incomprehensibly concise](#first-attempt)
    2. [Speculative General](#speculative-general)
