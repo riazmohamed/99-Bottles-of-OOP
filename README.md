@@ -3,7 +3,7 @@
 ## Index
 
 1. [Test suite](#test-suite)
-2. [Incomprehensibly concise](# first-attempt)
+2. [Incomprehensibly concise](#first-attempt)
 3. [Speculative General](#speculative-general)
 
 ### Test Suite
