@@ -3,15 +3,25 @@
 ## Index
 
 1. [Test suite](#test-suite)
+
 2. Understanding simplicity
+
    1. [Incomprehensibly concise](#first-attempt)
    2. [Speculative General](#speculative-general)
    3. [Concretely abstract](#concretely-abstract)
    4. [Shameless green](#shameless-green)
+
 3. [Evauating code based on facts](#evauating–code-based-on-facts)
+
    1. [Source line of code(SLOC)](#sloc)
+
    2. [Cyclomatic Complexcity](#cyclomatic-complexity)
+
    3. [Assignments, Branches and Conditions (ABC) Metric](#abc-metric)
+
+   4. [Summary](#summary)
+
+      
 
 In this book the author is attempting to give us a broader overview of a value/cost analysis using different implementations. The three value-cost questions used here to address the problem are 
 
@@ -724,14 +734,16 @@ Good Code
 
    ##### ABC Metric
 
-   This considers more than the conditionals. Measures the complexity of the code
+   This considers more than the conditionals. Measures the complexity of the code and is a proxy for code quality.
 
    * Assignment - Count of variables assigned
    * Branches - Counts the functions called or messages sent.
    * Conditionals - Counts the conditional logic
 
-   
+#### Summary
 
-   
+Temporary duplication is easier to manage than to recover from incorrect abstraction.
 
 [Index](#index)
+
+[:id]: 
