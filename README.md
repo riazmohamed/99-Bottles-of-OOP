@@ -8,6 +8,10 @@
    2. [Speculative General](#speculative-general)
    3. [Concretely abstract](#concretely-abstract)
    4. [Shameless green](#shameless-green)
+3. [Evauating code based on facts](#evauating–code-based-on-facts)
+   1. [Source line of code(SLOC)](#sloc)
+   2. [Cyclomatic Complexcity](#cyclomatic-complexity)
+   3. [Assignments, Branches and Conditions (ABC) Metric](#abc-metric)
 
 In this book the author is attempting to give us a broader overview of a value/cost analysis using different implementations. The three value-cost questions used here to address the problem are 
 
@@ -679,20 +683,35 @@ end
 
 The above code is simple  and it answers the following domain and value/cost questions well.
 
-| No.  |                       Domain Questions                       |                          Answer                           |
-| :--: | :----------------------------------------------------------: | :-------------------------------------------------------: |
-|  1.  |              How many verse variants are there?              |                           four                            |
-|  2.  |              Which of them are most alike? How?              |                       verse 3 - 99                        |
-|  3.  |              Which of them are different? How?               |                         0, 1 & 2                          |
-|  4.  | What is the rule to determine which rule should be utilized next? |                       Not explicit                        |
-|      |                            <br />                            |                                                           |
-|      |                   **Value/Cost Questions**                   |                                                           |
-|  1.  |               How difficult was this to write?               |                           easy                            |
-|  2.  |                How hard is it to understand?                 |                           easy                            |
-|  3.  |             How expensive will it be to change?              | Though there are duplicates<br />it is the cheaper option |
+|   No.   |                       Domain Questions                       |                          Answer                           |
+| :-----: | :----------------------------------------------------------: | :-------------------------------------------------------: |
+|   1.    |              How many verse variants are there?              |                           four                            |
+|   2.    |              Which of them are most alike? How?              |                       verse 3 - 99                        |
+|   3.    |              Which of them are different? How?               |                         0, 1 & 2                          |
+|   4.    | What is the rule to determine which rule should be utilized next? |                       Not explicit                        |
+|         |                            <br />                            |                                                           |
+| **No.** |                   **Value/Cost Questions**                   |                        **Answer**                         |
+|   1.    |               How difficult was this to write?               |                           easy                            |
+|   2.    |                How hard is it to understand?                 |                           easy                            |
+|   3.    |             How expensive will it be to change?              | Though there are duplicates<br />it is the cheaper option |
 
+Good Code
 
+* Simple, Understandable, Expressive and Changeable.
+* Provides highest value at lowest cost.
 
+## Evauating code based on facts
 
+1. ### Source line of code
+
+   ##### SLOC
+
+   ​	
+
+2. ### Cyclomatic Complexity
+
+3. ### Assignment, Branches and Conditions
+
+   ##### ABC Metric
 
 [Index](#index)
