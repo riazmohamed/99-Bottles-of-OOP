@@ -3,9 +3,10 @@
 ## Index
 
 1. [Test suite](#test-suite)
-2. [Incomprehensibly concise](#first-attempt)
-3. [Speculative General](#speculative-general)
-4. [Concretely abstract](#concretely-abstract)
+2. Understanding simplicity
+   1. [Incomprehensibly concise](#first-attempt)
+   2. [Speculative General](#speculative-general)
+   3. [Concretely abstract](#concretely-abstract)
 
 In this book the author is attempting to give us a broader overview of a value/cost analysis using different implementations. The three value-cost questions used here to address the problem are 
 
@@ -13,7 +14,7 @@ In this book the author is attempting to give us a broader overview of a value/c
 * How hard it is to understand?
 * How expensive will it be to change?
 
-### Test Suite
+### 1.1 Test Suite
 
 The following is the test suite against which the code will be executed. Here we are using the gem `Minitest` to test the application in `bottle.rb`
 
