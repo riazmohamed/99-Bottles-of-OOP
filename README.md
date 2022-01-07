@@ -5,6 +5,7 @@
 1. [Test suite](#test-suite)
 2. [Incomprehensibly concise](#first-attempt)
 3. [Speculative General](#speculative-general)
+4. [Concretely abstract](#concretely-abstract)
 
 In this book the author is attempting to give us a broader overview of a value/cost analysis using different implementations. The set of value cost questions used here are 
 
@@ -518,8 +519,6 @@ end
 ```
 
 The complexity in the above code is quite high due to its depndencies. The above should be avoided and one must strive to write a much simpler solution.  
-
-
 
 ### Concretely abstract
 
