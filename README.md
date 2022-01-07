@@ -746,4 +746,3 @@ Temporary duplication is easier to manage than to recover from incorrect abstrac
 
 [Index](#index)
 
-[:id]: 
