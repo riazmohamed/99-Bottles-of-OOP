@@ -706,12 +706,32 @@ Good Code
 
    ##### SLOC
 
-   ​	
+   In-order to approximate the cost of a new project an older simillar project is chosen and a cost estimation is carried out to predict the following.
+
+   SLOC/LOC approximately predicts the following
+
+   * Total effort required to produce the software
+   * productivity of those writting it 
+   * Cost of maintenance - Here it is the size of the application and not based on how the code is organised,
+
+   This alone is not enough to predict the code quality. As different programmers write code differently.
 
 2. ### Cyclomatic Complexity
+
+   Mathematical approach to find out the modules in a program which are harder to maitain and test. The cyclomatic complexity is gauged based on the number of conditionals within the code under question. This technique also helps in code-coverage as it will be required to carry out a minimum number of tests
 
 3. ### Assignment, Branches and Conditions
 
    ##### ABC Metric
+
+   This considers more than the conditionals. Measures the complexity of the code
+
+   * Assignment - Count of variables assigned
+   * Branches - Counts the functions called or messages sent.
+   * Conditionals - Counts the conditional logic
+
+   
+
+   
 
 [Index](#index)
