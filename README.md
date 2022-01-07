@@ -7,7 +7,7 @@
 3. [Speculative General](#speculative-general)
 4. [Concretely abstract](#concretely-abstract)
 
-In this book the author is attempting to give us a broader overview of a value/cost analysis using different implementations. The set of value cost questions used here are 
+In this book the author is attempting to give us a broader overview of a value/cost analysis using different implementations. The three value-cost questions used here to address the problem are 
 
 * How difficult was it to write?
 * How hard it is to understand?
@@ -636,4 +636,4 @@ end
 
 In the above code since we have a higher layer of abstraction in the method name the previous problem is now negated. Naming the methods with the wrong layer of abstraction can lead to a higher cost when changing the implementation details. The main lesson learnt from this implementation detail is that the methods should be named based on the concepts they represent and not based on how they currently behave. Also the current solution does not address the value/cost question as many of the methods have wrong abstractions.
 
-[Top](#index)
+[Index](#index)
