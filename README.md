@@ -2,11 +2,12 @@
 
 ## Index
 
-1. [Test suite](#1.1-test-suite)
+1. [Test suite](#test-suite)
 2. Understanding simplicity
    1. [Incomprehensibly concise](#first-attempt)
    2. [Speculative General](#speculative-general)
    3. [Concretely abstract](#concretely-abstract)
+   4. [Shameless green](#shameless-green)
 
 In this book the author is attempting to give us a broader overview of a value/cost analysis using different implementations. The three value-cost questions used here to address the problem are 
 
@@ -14,7 +15,7 @@ In this book the author is attempting to give us a broader overview of a value/c
 * How hard it is to understand?
 * How expensive will it be to change?
 
-### 1.1 Test Suite
+### Test Suite
 
 The following is the test suite against which the code will be executed. Here we are using the gem `Minitest` to test the application in `bottle.rb`
 
@@ -636,5 +637,62 @@ end
 ```
 
 In the above code since we have a higher layer of abstraction in the method name the previous problem is now negated. Naming the methods with the wrong layer of abstraction can lead to a higher cost when changing the implementation details. The main lesson learnt from this implementation detail is that the methods should be named based on the concepts they represent and not based on how they currently behave. Also the current solution does not address the value/cost question as many of the methods have wrong abstractions.
+
+### Shameless green
+
+```ruby
+class Bottles
+  def song
+    verses(99, 0)
+  end
+
+  def verses(upper, lower)
+    upper.downto(lower).map {|i| verse(i)}.join("\n")
+  end
+
+  def verse(number)
+   case number
+   when 0
+     "No more bottles of milk on the wall, " +
+     "no more bottles of milk.\n" +
+     "Go to the store and buy some more, " +
+     "99 bottles of milk on the wall.\n"
+   when 1
+     "1 bottle of milk on the wall, " +
+     "1 bottle of milk.\n" +
+     "Take it down and pass it around, " +
+     "no more bottles of milk on the wall.\n"
+   when 2
+     "2 bottles of milk on the wall, " +
+     "2 bottles of milk.\n" +
+     "Take one down and pass it around, " +
+     "1 bottle of milk on the wall.\n"
+   else
+     "#{number} bottles of milk on the wall, " +
+     "#{number} bottles of milk.\n" +
+     "Take one down and pass it around, " +
+     "#{number-1} bottles of milk on the wall.\n"
+   end
+  end
+end
+```
+
+The above code is simple  and it answers the following domain and value/cost questions well.
+
+| No.  |                       Domain Questions                       |                          Answer                           |
+| :--: | :----------------------------------------------------------: | :-------------------------------------------------------: |
+|  1.  |              How many verse variants are there?              |                           four                            |
+|  2.  |              Which of them are most alike? How?              |                       verse 3 - 99                        |
+|  3.  |              Which of them are different? How?               |                         0, 1 & 2                          |
+|  4.  | What is the rule to determine which rule should be utilized next? |                       Not explicit                        |
+|      |                                                              |                                                           |
+|      |                   **Value/Cost Questions**                   |                                                           |
+|  1.  |               How difficult was this to write?               |                           easy                            |
+|  2.  |                How hard is it to understand?                 |                           easy                            |
+|  3.  |             How expensive will it be to change?              | Though there are duplicates<br />it is the cheaper option |
+
+
+
+
 
 [Index](#index)
